@@ -53,7 +53,9 @@ local.properties
 # IML Files
 *.iml
 
-
 # Android Builds
 debug
 release
+
+# Android Keystores
+keystore.properties
