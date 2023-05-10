@@ -11,7 +11,7 @@ import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 
 class NavigationActions(private val navController: NavController) {
-    private val navigateToHomeScreen : () -> Unit = {
+    private val navigateToHomeScreen: () -> Unit = {
         navController.navigate(NavigationDestinations.HOME_ROUTE) {
             popUpTo(navController.graph.startDestinationId) {
                 saveState = true
@@ -31,7 +31,13 @@ class NavigationActions(private val navController: NavController) {
         }
     }
 
-    val bottomBarItems : ImmutableList<NavigationItem> = persistentListOf(
+    private val navigateToSettingsScreen: () -> Unit = {
+        navController.navigate(NavigationDestinations.SETTINGS_ROUTE) {
+            launchSingleTop = true
+        }
+    }
+
+    val bottomBarItems: ImmutableList<NavigationItem> = persistentListOf(
         NavigationItem(
             activeIcon = Icons.Filled.Home,
             passiveIcon = Icons.Outlined.Home,
